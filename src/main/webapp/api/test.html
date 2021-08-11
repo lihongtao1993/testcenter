@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>接口测试</title>
+    <script>
+        function fun(){
+            var xmlhttp;
+            if (window.XMLHttpRequest){
+                xmlhttp = new XMLHttpRequest();
+            }else {
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.open("POST","/testcenter",true);
+            xmlhttp.setRequestHeader("Content-Type","application/json;charset=utf8")
+            // xmlhttp.send("apiUrl="+document.getElementById("apiurl").value+"&requestBody="+document.getElementById("requestbody").value);
+            xmlhttp.send("apiUrl=https%3A%2F%2Fm.ctrip.com%2Frestapi%2Fsoa2%2F18254%2Fjson%2FgetPoiMoreDetail&requestBody=%7B%22poiId%22%3A13412802%2C%22scene%22%3A%22basic%22%2C%22coordinate%22%3A%7B%22coordinateType%22%3A%22WGS84%22%2C%22latitude%22%3A31.2161077%2C%22longitude%22%3A121.3427151%7D%2C%22head%22%3A%7B%22cid%22%3A%2209031167115414294713%22%2C%22ctok%22%3A%22%22%2C%22cver%22%3A%221.0%22%2C%22lang%22%3A%2201%22%2C%22sid%22%3A%228888%22%2C%22syscode%22%3A%2209%22%2C%22auth%22%3A%22%22%2C%22xsid%22%3A%22%22%2C%22extension%22%3A%5B%5D%7D%7D")
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <span>请求地址：</span><input type="text" name="apiUrl" id = "apiurl"><br>
+        <span>请求参数：</span><input type="text" name="requestBody" id="requestbody"><br>
+        <input type="button" id="sub" name="b" value="提交" onclick="fun();">
+    </form>
+    <br>    <br>    <br>    <br>
+    <div id="responseBody">
+
+    </div>
+</body>
+</html>

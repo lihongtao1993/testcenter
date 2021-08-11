@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>异步加载</title>
+    <script>
+        function testAjax(){
+            // 1、创建核心对象
+            var xmlhttp;
+            if (window.XMLHttpRequest){
+                xmlhttp = new XMLHttpRequest();
+            }else {
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+
+            //2、发送请求
+            xmlhttp.open("GET","/testservlet?username=hhhhhhh",true);
+            // var username = document.getElementById("username").value;
+            // xmlhttp.send("username=htli");
+
+            //3、发送请求
+            xmlhttp.send();
+            xmlhttp.onreadystatechange=function(){
+                if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                {
+                    alert(xmlhttp.response)
+                    document.getElementById("tips").innerText = xmlhttp.response;
+                }
+
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="提交" onclick="testAjax();">
+    <div id="tips"> </div>
+
+</body>
+</html>
